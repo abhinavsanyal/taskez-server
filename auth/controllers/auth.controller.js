@@ -24,7 +24,7 @@ exports.generateTokens = user => {
           user,
           process.env.JWT_SECRET,
           {
-            expiresIn: '60s' // 60 min in seconds
+            expiresIn: '24h' 
           },
           (err, jwttoken) => {
             if (err) {
