@@ -29,6 +29,7 @@ This API can be used with any client, here is the client I have developed with R
 - [x] Middlewares to ensure authentification and permission to access resources.
 - [ ] Implemented basic unit tests
 - [ ] Option to add comments and memebers to a task / card in a kanban board.
+- [x] Option to manage kanban board.
 
 # Getting Started
 
