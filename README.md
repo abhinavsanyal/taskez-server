@@ -3,8 +3,10 @@
 </h3>
 <h4 align="center">
   A lean and clean REST API for kanban style project management. 
-</4>
+</h4>
 
+# Demo :
+[live demo link: ]("https://taskez-client.herokuapp.com/")
 # About the API
 
 **NodeJs** Rest Api for kanban board creation , modification and management. Implements a clean structure, with the best practices for authentication, including OAuth for _Google Login_ and _Facebook Login_ and the clasic JWT style. Keeping focus on well structured and clean code.
@@ -174,6 +176,7 @@ If the login credentials are right, the response should be like:
 
 In order to make your users stay logged on your app, you have to provide the jwt for each request. To do that, on the client side, grab the `accessToken` from the previous request, prefix it with `Bearer` and add it to the request headers under Authorization.
 
-# Looking for a plug and play Client for consuming the API ?
+### Looking for a plug and play Client for consuming the API ?
 
-[Elegant ReactJs front end with DnD experience: ]("https://github.com/reltronx/taskez-client").
+[x]  [live demo link: ](https://taskez-client.herokuapp.com/)
+[x]  [client repository](https://github.com/reltronx/taskez-client)
