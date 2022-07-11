@@ -70,19 +70,32 @@ exports.seed = (req, res) => {
     cards: [],
   };
 
-  // Model create all above 3 lanes in sequence 
-  Lane.create(todoLane)
-    .then((lane) => {
-      return Lane.create(inProgressLane);
-    }
-    ).then((lane) => {
-      return Lane.create(completedLane);
-    }
-    ).then((lane) => {
-      res.status(200).send(lane);
-    }
+  // get all lanes and check if any lane exits
+  Lane.find({})
+    .then((lanes) => {
+      if (lanes.length === 0) {
+        // Model create all above 3 lanes in sequence 
+        Lane.create(todoLane)
+          .then((lane) => {
+            return Lane.create(inProgressLane);
+          }
+          ).then((lane) => {
+            return Lane.create(completedLane);
+          }
+          ).then((lane) => {
+            res.status(200).send(lane);
+          }
+          ).catch((err) => {
+            res.status(400).send({ error: err });
+          }
+          );
+      } else {
+        res.status(200).send(lanes);
+      }
+    } 
     ).catch((err) => {
       res.status(400).send({ error: err });
-    }
-    );
+    } 
+    ); 
 }
+       
