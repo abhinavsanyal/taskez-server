@@ -70,17 +70,19 @@ exports.seed = (req, res) => {
     cards: [],
   };
 
-  // Model create all above 3 lanes in sequence using promise all
-
-  Promise.all([
-    Lane.create(todoLane),
-    Lane.create(inProgressLane),
-    Lane.create(completedLane),
-  ]).then((result) => {
-    res.status(200).send(result);
-  }
-  ).catch((err) => {
-    res.status(400).send({ error: "Error. Probably Wrong id.", err: err });
-  }
-  );
+  // Model create all above 3 lanes in sequence 
+  Lane.create(todoLane)
+    .then((lane) => {
+      return Lane.create(inProgressLane);
+    }
+    ).then((lane) => {
+      return Lane.create(completedLane);
+    }
+    ).then((lane) => {
+      res.status(200).send(lane);
+    }
+    ).catch((err) => {
+      res.status(400).send({ error: err });
+    }
+    );
 }
